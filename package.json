@@ -15,5 +15,8 @@
     "url": "git@github.com-hexlet:rozhin89/frontend-project-lvl1.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
