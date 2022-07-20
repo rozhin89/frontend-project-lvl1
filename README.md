@@ -7,4 +7,4 @@
 - [Brain-event Game](https://asciinema.org/a/7x1VShWmJKdyZrJhh7FVki7Cz)
 - [Brain-calc Game](https://asciinema.org/a/bmxnLO7ZXuvOLG9M6ZIZHvq9S)
 - [Brain-gcd Game](https://asciinema.org/a/v4v2j6PpOcptR6YZ2CskRw8OM)
-- [Brain-gcd Progression](https://asciinema.org/a/lmsvWQoQ58wDCU0v7PryhJdcl)
+- [Brain-Progression Game](https://asciinema.org/a/lmsvWQoQ58wDCU0v7PryhJdcl)
