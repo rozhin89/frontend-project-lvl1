@@ -1,37 +1,29 @@
 import readlineSync from 'readline-sync';
 
-import greet from './cli.js';
-
 const QUESTIONS_COUNT = 3;
 
-const launchGameCycle = (generateQuestion) => {
-  for (let step = 0; step < QUESTIONS_COUNT; step += 1) {
-    const question = generateQuestion();
+export default function launchGame(rules, generateTask) {
+  console.log('Welcome to the Brain Games!');
 
-    console.log(`Question: ${question.task}`);
+  const name = readlineSync.question('May I have your name? ');
+
+  console.log(`Hello, ${name}!`);
+  console.log(rules);
+
+  for (let step = 0; step < QUESTIONS_COUNT; step += 1) {
+    const task = generateTask();
+
+    console.log(`Question: ${task.question}`);
 
     const userAnswer = readlineSync.question('Your answer: ');
 
-    if (question.answer !== userAnswer) {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${question.answer}'.`);
-      return false;
+    if (task.answer !== userAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${task.answer}'.`);
+      return console.log(`Let's try again, ${name}!`);
     }
 
     console.log('Correct!');
   }
 
-  return true;
-};
-
-export default function launchGame(rules, generateQuestion) {
-  const name = greet();
-  console.log(rules);
-
-  const gameResult = launchGameCycle(generateQuestion);
-
-  const finishMessage = gameResult
-    ? `Congratulations, ${name}!`
-    : `Let's try again, ${name}!`;
-
-  console.log(finishMessage);
+  return console.log(`Congratulations, ${name}!`);
 }
