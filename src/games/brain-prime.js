@@ -33,7 +33,7 @@ const isPrime = (value) => {
   return true;
 };
 
-const generateTask = () => {
+const getRoundData = () => {
   const value = getRandom(MIN_RANDOM_VALUE, MAX_RANDOM_VALUE);
   const answer = isPrime(value) ? POSITIVE_ANSWER : NEGATIVE_ANSWER;
 
@@ -43,6 +43,6 @@ const generateTask = () => {
 export default function launch() {
   launchGame(
     `Answer "${POSITIVE_ANSWER}" if given number is prime. Otherwise answer "${NEGATIVE_ANSWER}".`,
-    generateTask,
+    getRoundData,
   );
 }

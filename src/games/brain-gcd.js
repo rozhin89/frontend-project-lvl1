@@ -19,7 +19,7 @@ const calculateGcd = (firstValue, secondValue) => {
     : calculateGcd(smallerValue, remainder);
 };
 
-const generateTask = () => {
+const getRoundData = () => {
   const firstValue = getRandom(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
   const secondValue = getRandom(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
 
@@ -32,6 +32,6 @@ const generateTask = () => {
 export default function launch() {
   launchGame(
     'Find the greatest common divisor of given numbers.',
-    generateTask,
+    getRoundData,
   );
 }

@@ -12,33 +12,32 @@ const MAX_PROGRESSION_SHIFT = 50;
 const MIN_PROGRESSION_LENGTH = 5;
 const MAX_PROGRESSION_LENGTH = 10;
 
-const generateRandomProgression = (minStep, maxStep, minShift, maxShift, minLength, maxLength) => {
+const generateRandomProgression = (step, minValue, length) => {
   const result = [];
-  const step = getRandom(minStep, maxStep);
-  const minValue = getRandom(minShift, maxShift);
-  const progressionLength = getRandom(minLength, maxLength);
 
-  for (let index = 0; index < progressionLength; index += 1) {
+  for (let index = 0; index < length; index += 1) {
     result.push(minValue + index * step);
   }
 
   return result;
 };
 
-const generateTask = () => {
+const getRoundData = () => {
+  const step = getRandom(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+  const minValue = getRandom(MIN_PROGRESSION_SHIFT, MAX_PROGRESSION_SHIFT);
+  const progressionLength = getRandom(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+
   const progression = generateRandomProgression(
-    MIN_PROGRESSION_STEP,
-    MAX_PROGRESSION_STEP,
-    MIN_PROGRESSION_SHIFT,
-    MAX_PROGRESSION_SHIFT,
-    MIN_PROGRESSION_LENGTH,
-    MAX_PROGRESSION_LENGTH,
+    step,
+    minValue,
+    progressionLength,
   );
 
   const randomIndex = getRandom(0, progression.length - 1);
   const answer = progression[randomIndex];
 
-  const question = progression.join(' ').replace(answer, HIDDEN_CHARS);
+  progression[randomIndex] = HIDDEN_CHARS;
+  const question = progression.join(' ');
 
   return { question, answer: String(answer) };
 };
@@ -46,6 +45,6 @@ const generateTask = () => {
 export default function launch() {
   launchGame(
     'What number is missing in the progression?',
-    generateTask,
+    getRoundData,
   );
 }

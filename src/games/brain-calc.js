@@ -24,7 +24,7 @@ const calculateAnswer = (operator, leftOperand, rightOperand) => {
   return calculate(leftOperand, rightOperand);
 };
 
-const generateTask = () => {
+const getRoundData = () => {
   const operator = getRandomOperator(Object.keys(operatorsFunctionsMap));
   const leftOperand = getRandom(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
   const rightOperand = getRandom(MIN_OPERAND_VALUE, MAX_OPERAND_VALUE);
@@ -38,6 +38,6 @@ const generateTask = () => {
 export default function launch() {
   launchGame(
     'What is the result of the expression?',
-    generateTask,
+    getRoundData,
   );
 }
